@@ -1,8 +1,13 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App'
+import components  from '@/components/UI'
 
-Vue.config.productionTip = false
-
-new Vue({
+const app = new Vue({
   render: h => h(App),
-}).$mount('#app')
+});
+console.log(components);
+components.forEach(component => {
+  Vue.component(component.name, component)
+})
+
+app.$mount('#app')
